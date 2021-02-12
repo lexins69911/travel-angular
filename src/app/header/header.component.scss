@@ -1,0 +1,54 @@
+.header-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.navs {
+  display: flex;
+  flex-direction: row;
+  margin-left: auto;
+  margin-right: 50px;
+  cursor: pointer;
+  font-family: Roboto,sans-serif;
+  font-size: .9375rem;
+  font-weight: 600;
+  line-height: 1.5rem;
+}
+
+.menu-item {
+  margin-right: 35px;
+}
+
+.menu-item:hover {
+  color: #36f;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 24px;
+  background: #33313b;
+  padding: 0 1em;
+  line-height: 1.2;
+  text-align: center;
+  color: white;
+  width: 200px;
+  height: 60px;
+  cursor: pointer;
+}
+
+.logo-upper-text {
+  padding-top: 5px;
+}
+
+.logo-under-text {
+  font-size: 12px;
+}
+
+:host::ng-deep .menu {
+  .menu-items {
+    display: flex;
+    .menu-item {
+      border-bottom: none; 
+    }
+  }
+}

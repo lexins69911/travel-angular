@@ -1,0 +1,23 @@
+.main-page-container {
+  background-position: 50% 0%;
+  background-image: url(../../../../src/assets/images/main-page.PNG);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  height: calc(100vh - 75px);
+}
+
+.main-page-text {
+  position: absolute;
+  top: 64%;
+  left: 31%;
+}
+
+.main-page-text-h1 {
+  color: white !important;
+}
+
+.search-bar {
+  position: absolute;
+  top: 35%;
+  left: calc((100% - 1100px) / 2);
+}

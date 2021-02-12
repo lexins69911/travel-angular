@@ -1,0 +1,21 @@
+<nb-card size="medium">
+    <nb-card-header>
+        <h3 class="mb-1">Посетители</h3>
+
+    </nb-card-header>
+    <nb-card-body class="d-flex flex-column">
+        <div class="d-flex">
+            <div class="legend">
+                <div style="background-color: rgb(0, 214, 143);" class="legend-item-color"></div>
+                <div>Уникальных посетителей</div>
+            </div>
+            <div class="legend">
+                <div class="ml-3 legend-item-color" style="background-color: rgb(51,102,255);"></div>
+                <div>Просмотрено страниц</div>
+            </div>
+        </div>
+        <div class="chart-container">
+            <app-visitors-analytics-chart></app-visitors-analytics-chart>
+        </div>
+    </nb-card-body>
+</nb-card>

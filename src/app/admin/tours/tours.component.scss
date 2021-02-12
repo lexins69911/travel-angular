@@ -1,0 +1,32 @@
+.details {
+    flex: 1;
+    padding: 1rem 1.5rem;
+}
+
+.picture {
+    height: 100%;
+    object-fit: fill;
+    border-radius: 0.25rem;
+}
+
+.card {
+    display: flex;
+    flex-direction: row !important;
+}
+
+nb-icon {
+    cursor: pointer;
+}
+
+.tours-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+:host::ng-deep {
+    .carousel,
+    .carousel-inner,
+    .carousel-item {
+        height: 100%;
+    }
+}

@@ -1,0 +1,40 @@
+.contacts-page-container {
+    background-position: 50% 0%;
+    background-image: url(../../../../src/assets/images/contacts-page.PNG);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: calc(100vh - 75px);
+}
+
+.submit-message-form {
+  height: 593px;
+  width: 409px;
+  position: absolute;
+  top: 130px;
+  right: 120px;
+  background: white;
+  border-radius: 10px;
+}
+
+.send-message-button {
+  width: 177px;
+  height: 58px;
+  color: white;
+  cursor: pointer;
+  background: #f9ab30 !important;
+  border: none !important;
+  border-radius: 50px;
+  text-align: center;
+  padding-top: 17px;
+  margin-top: 30px;
+  margin-left: 110px;
+}
+
+.message-controls-wrapper {
+  width: 350px;
+  margin-left: 30px;
+}
+
+.message-controls {
+  height: 70px;
+}

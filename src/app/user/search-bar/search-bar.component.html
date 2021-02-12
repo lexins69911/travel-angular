@@ -1,0 +1,17 @@
+<div [formGroup]="form" class="search-bar">
+  <div class="department-field-search">
+    <span>Место назначения</span>
+    <input class="mt-2" formControlName="placement" nbInput placeholder="Страна" />
+  </div>
+  <div class="date-picker-search">
+    <span>Дата отправления и прибытия</span>
+    <input class="date-picker mt-2" formControlName="range" nbInput [nbDatepicker]="formpicker">
+    <nb-rangepicker #formpicker></nb-rangepicker>
+  </div>
+  <div>
+    <span>Лимит стоимости</span>
+    <input class="mt-2" formControlName="price" nbInput type="number" placeholder="Цена" />
+  </div>
+  <button (click)="handleSearchTours()" style="height: 50px; width: 140px; align-self: center;" class="mr-3" status="warning" nbButton>Найти</button>
+  <!-- <div class="search-button" (click)="handleSearchTours()"><span>Найти</span></div> -->
+</div>

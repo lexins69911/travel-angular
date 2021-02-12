@@ -1,0 +1,24 @@
+<h1 id="title" class="title">Войти</h1>
+
+<form (ngSubmit)="login()" [formGroup]="form" aria-labelledby="title">
+    <div class="form-control-group">
+        <label class="label">Логин:</label>
+        <input formControlName="username" nbInput fullWidth placeholder="Login" fieldSize="large" autofocus>
+    </div>
+
+    <div class="form-control-group">
+        <span class="label-with-link">
+            <label class="label" for="input-password">Пароль:</label>
+        </span>
+        <input formControlName="password" nbInput fullWidth type="password" id="input-password" placeholder="Password"
+            fieldSize="large">
+    </div>
+
+    <button class="mt-3" nbButton fullWidth [status]="'primary'" size="large">
+        Войти
+    </button>
+</form>
+
+<section class="another-action" aria-label="Register">
+    Нет учётной записи? <a class="text-link" routerLink="../register">Регистрация</a>
+</section>

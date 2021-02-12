@@ -1,0 +1,17 @@
+.about-us-page-container {
+  background-position: 50% 0%;
+  background-image: url(../../../../src/assets/images/about-us-page.PNG);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  height: calc(100vh - 75px);
+}
+
+.about-us-text {
+  font-family: "Poppins", Arial, sans-serif;
+  font-size: 17px;
+  color: #999999;
+  position: absolute;
+  right: 20px;
+  top: 20%;
+  width: 48%;
+}

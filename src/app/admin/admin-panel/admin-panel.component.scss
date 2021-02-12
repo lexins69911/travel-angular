@@ -1,0 +1,9 @@
+:host {
+    display: flex;
+    height: calc(100% - 75px);
+}
+
+.router-outlet ::ng-deep + * {
+    flex: 1;
+    padding: 20px;
+}

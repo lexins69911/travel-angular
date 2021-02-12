@@ -1,0 +1,9 @@
+<nb-layout-header [fixed]="true">
+  <div class="logo" routerLink="./">
+    <div class="logo-upper-text">Vacation</div>
+    <div class="logo-under-text">Туристическое агентство</div>
+  </div>
+
+  <nb-menu class="ml-auto menu" [items]="items"></nb-menu>
+  <button (click)="logout()">Выйти</button>
+</nb-layout-header>

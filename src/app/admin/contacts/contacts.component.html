@@ -1,0 +1,21 @@
+<nb-card>
+  <nb-card-header>
+    <span class="h3">Обращения</span>
+  </nb-card-header>
+  <nb-card-body>
+    <ng2-smart-table [settings]="settings" [source]="orders$|async" (deleteConfirm)="onDeleteConfirm($event)"></ng2-smart-table>
+  </nb-card-body>
+</nb-card>
+
+<ng-template #confirmDialog let-ref="dialogRef">
+  <nb-card>
+    <nb-card-header>Подтверждение</nb-card-header>
+    <nb-card-body>
+      Вы уверены, что хотите удалить обращение пользователя?
+    </nb-card-body>
+    <nb-card-footer class="d-flex">
+      <button nbButton (click)="ref.close(false)">Отмена</button>
+      <button class="ml-auto" nbButton status="primary" (click)="ref.close(true)">Удалить</button>
+    </nb-card-footer>
+  </nb-card>
+</ng-template>

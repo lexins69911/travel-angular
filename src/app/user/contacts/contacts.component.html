@@ -1,0 +1,11 @@
+<div class="contacts-page-container">
+  <div [formGroup]="form" class="submit-message-form">
+    <div class="message-controls-wrapper">
+    <input class="mt-4 message-controls" formControlName="name" nbInput placeholder="Ваше имя" fullWidth/>
+     <input class="mt-4 message-controls" formControlName="email" nbInput placeholder="E-mail" fullWidth/>
+     <input class="mt-4 message-controls" formControlName="theme" nbInput placeholder="Тема письма" fullWidth />
+     <textarea class="mt-4" style="height: 140px" formControlName="message" placeholder="Текст письма" nbInput fullWidth></textarea>
+    </div>
+      <div class="send-message-button" (click)="handleSendMessage()"><span>Отправить</span></div>
+  </div>
+</div>

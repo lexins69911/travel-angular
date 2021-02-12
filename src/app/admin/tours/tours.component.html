@@ -1,0 +1,54 @@
+<div class="d-flex px-4 row mb-2">
+  <span class="h1">Туры</span>
+  <button class="ml-auto" status="primary" nbButton (click)="addTour()">
+    <nb-icon class="mr-2" icon="plus-outline"></nb-icon> Добавить тур
+  </button>
+</div>
+<div class="tours-container">
+  <div class="col-6" *ngFor="let tour of tours$ | async">
+    <nb-card class="d-flex flex-row" [size]="'small'">
+      <ngb-carousel class="col-4 px-0" [showNavigationArrows]="false" [showNavigationIndicators]="false"
+        [pauseOnHover]="true">
+        <ng-template ngbSlide *ngFor="let image of tour.images">
+          <img class="picture w-100" [src]="image | safeHtml:'url'">
+        </ng-template>
+      </ngb-carousel>
+      <div class="details">
+        <span class="h4 d-flex">
+          <div class="d-flex flex-column">
+            <div>
+              {{tour.country}}, {{tour.city}}
+            </div>
+            <div class="h6">
+              {{tour.hotel?.name}}
+              <ngb-rating class="ml-2" [readonly]="true" [max]="tour.hotel?.rating">
+                <ng-template let-fill="fill">
+                  <nb-icon [style.color]="'gold'" icon="star"></nb-icon>
+                </ng-template>
+              </ngb-rating>
+            </div>
+          </div>
+
+          <nb-icon class="ml-auto mr-3" icon="edit-2-outline" (click)="editTour(tour)"></nb-icon>
+          <nb-icon icon="trash-2-outline" (click)="removeTour(tour)"></nb-icon>
+        </span>
+        <div class="description" [innerHTML]="tour.description | safeHtml:'html'">
+        </div>
+      </div>
+    </nb-card>
+  </div>
+</div>
+
+
+<ng-template #confirmDialog let-ref="dialogRef">
+  <nb-card>
+    <nb-card-header>Подтверждение</nb-card-header>
+    <nb-card-body>
+      Вы уверены, что хотите удалить тур?
+    </nb-card-body>
+    <nb-card-footer class="d-flex">
+      <button nbButton (click)="ref.close(false)">Отмена</button>
+      <button class="ml-auto" nbButton status="primary" (click)="ref.close(true)">Удалить</button>
+    </nb-card-footer>
+  </nb-card>
+</ng-template>

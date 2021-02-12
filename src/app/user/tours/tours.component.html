@@ -1,0 +1,72 @@
+<div class="tours-page-container position-relative">
+    <app-search-bar class="search-bar" (search)="handleSearch($event)"></app-search-bar>
+</div>
+<div class="w-75 ml-auto mr-auto d-flex flex-wrap mt-3">
+    <div class="col-4" *ngFor="let tour of tours$ | async">
+        <nb-card size="medium">
+            <nb-card-header class="p-0 position-relative tour-header">
+                <ngb-carousel [showNavigationArrows]="false" [showNavigationIndicators]="false" [pauseOnHover]="true">
+                    <ng-template ngbSlide *ngFor="let image of tour.images">
+                        <img class="picture w-100" [src]="image | safeHtml:'url'">
+                    </ng-template>
+                </ngb-carousel>
+                <button (click)="handleOrder(tourTemplate, tour)" class="price-button" style="width: 154px;" status="warning"
+                    shape="round" nbButton>{{tour.price}} Р / Человек</button>
+            </nb-card-header>
+
+            <div class="details p-4">
+                <span class="h5 d-flex flex-column">
+                    <div class="days">
+                        {{tour.duration}} суток
+                    </div>
+                    <div class="d-flex flex-column">
+                        <div>
+                            {{tour.country}}, {{tour.city}}
+                        </div>
+                        <div class="h6">
+                            {{tour.startDate | date}} - {{tour.endDate | date}}
+                        </div>
+                        <div [innerHTML] = "tour.description">
+                        </div>
+                        <div class="h6">
+                            {{tour.hotel?.name}}
+                            <ngb-rating class="ml-2" [readonly]="true" [max]="tour.hotel?.rating">
+                                <ng-template let-fill="fill">
+                                    <nb-icon [style.color]="'gold'" icon="star"></nb-icon>
+                                </ng-template>
+                            </ngb-rating>
+                        </div>
+                    </div>
+                </span>
+            </div>
+        </nb-card>
+    </div>
+</div>
+
+<ng-template #tourTemplate let-data let-ref="dialogRef">
+    <nb-card [formGroup]="data.form" style="width: 50vw;" [size]="'medium'">
+        <nb-card-header>
+            Заявка на бронь тура
+        </nb-card-header>
+        <nb-card-body>
+            <input id="name" class="mb-2" fullWidth formControlName="name" nbInput placeholder="Ваше имя" required>
+            <div class="justify-content-between d-flex mb-2">
+                <nb-form-field class="col pl-0">
+                    <nb-icon nbPrefix icon="at-outline" pack="eva"></nb-icon>
+                    <input formControlName="email" fullWidth formControlName="email" type="text" placeholder="Электронная почта"
+                        nbInput>
+                </nb-form-field>
+                <nb-form-field class="col pr-0">
+                    <nb-icon nbPrefix icon="phone-outline" pack="eva"></nb-icon>
+                    <input formControlName="phone" fullWidth type="text" nbInput placeholder="Телефон">
+                </nb-form-field>
+            </div>
+
+            <textarea class="mb-2" style="height: 180px" fullWidth formControlName="description" nbInput
+                placeholder="Комментарии"></textarea>
+        </nb-card-body>
+        <nb-card-footer>
+            <button (click)="ref.close(true)" nbButton status="primary">Отправить заявку на бронь</button>
+        </nb-card-footer>
+    </nb-card>
+</ng-template>
